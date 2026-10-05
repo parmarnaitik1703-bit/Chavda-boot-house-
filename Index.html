@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chavda Boot House | Uttamnagar</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b0b;
+      color: white;
+    }
+
+    /* NAVBAR */
+    nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      background: #111;
+      border-bottom: 1px solid #c9a227;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #d4af37;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.85)),
+        url("https://images.unsplash.com/photo-1542291026-7eec264c27ff")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      color: #d4af37;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #ddd;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      margin: 5px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .gold-btn {
+      background: #d4af37;
+      color: black;
+    }
+
+    .gold-btn:hover {
+      background: white;
+      transform: scale(1.05);
+    }
+
+    .outline-btn {
+      border: 1px solid #d4af37;
+      color: #d4af37;
+    }
+
+    .outline-btn:hover {
+      background: #d4af37;
+      color: black;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      color: #d4af37;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #aaa;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      background: #151515;
+      border: 1px solid #292929;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      border-color: #d4af37;
+    }
+
+    .product img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: #aaa;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: #d4af37;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* ABOUT */
+    .about {
+      text-align: center;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .about p {
+      color: #ccc;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      max-width: 600px;
+      margin: auto;
+      background: #151515;
+      padding: 35px;
+      border-radius: 15px;
+      border: 1px solid #333;
+      text-align: center;
+    }
+
+    .contact-box p {
+      margin: 15px 0;
+      color: #ccc;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111;
+      border-top: 1px solid #333;
+      color: #888;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #25D366;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 20px rgba(0,0,0,.5);
+    }
+
+    /* MOBILE */
+    @media(max-width: 800px) {
+
+      nav {
+        padding: 0 20px;
+      }
+
+      nav div:last-child {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero h2 {
+        font-size: 22px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      section {
+        padding: 55px 20px;
+      }
+    }
+
+    @media(max-width: 500px) {
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">CHAVDA BOOT HOUSE</div>
+
+    <div>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>CHAVDA BOOT HOUSE</h1>
+
+      <h2>Premium Footwear For Every Style</h2>
+
+      <p>
+        Discover stylish, comfortable and premium footwear
+        for every occasion.
+      </p>
+
+      <a href="#products" class="btn gold-btn">
+        Explore Collection
+      </a>
+
+      <a
+        href="https://wa.me/919484970514"
+        class="btn outline-btn">
+        WhatsApp Us
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+  <section id="products">
+
+    <div class="section-title">
+      <h2>Our Collection</h2>
+      <p>Choose your perfect style</p>
+    </div>
+
+
+    <div class="products">
+
+      <div class="product">
+
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+
+        <div class="product-info">
+          <h3>Sports Shoes</h3>
+          <p>Comfortable everyday footwear.</p>
+          <div class="price">₹999+</div>
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772">
+
+        <div class="product-info">
+          <h3>Casual Shoes</h3>
+          <p>Stylish shoes for daily wear.</p>
+          <div class="price">₹899+</div>
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1">
+
+        <div class="product-info">
+          <h3>Formal Shoes</h3>
+          <p>Perfect for office and occasions.</p>
+          <div class="price">₹1,299+</div>
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86">
+
+        <div class="product-info">
+          <h3>Premium Collection</h3>
+          <p>Premium look with premium comfort.</p>
+          <div class="price">₹1,499+</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="section-title">
+      <h2>About Us</h2>
+    </div>
+
+    <div class="about">
+
+      <p>
+        Welcome to Chavda Boot House, Uttamnagar.
+        We offer a wide range of stylish and comfortable
+        footwear for different occasions. Our goal is to
+        provide quality products with great service at
+        reasonable prices.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Visit our store or contact us</p>
+    </div>
+
+    <div class="contact-box">
+
+      <h3>Chavda Boot House</h3>
+
+      <p>📍 Uttamnagar, Ahmedabad</p>
+
+      <p>📞 +91 94849 70514</p>
+
+      <p>👟 Premium Footwear Collection</p>
+
+      <a
+        href="https://wa.me/919484970514"
+        class="btn gold-btn">
+        Chat on WhatsApp
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    © 2026 Chavda Boot House. All Rights Reserved.
+
+  </footer>
+
+
+  <!-- FLOATING WHATSAPP -->
+  <a
+    href="https://wa.me/919484970514"
+    class="whatsapp">
+    💬 WhatsApp
+  </a>
+
+</body>
+          </html>
